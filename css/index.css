@@ -1,0 +1,21 @@
+/* -- configuraciones Generals ------------------------- */
+/* ----------------------------------------------------- */
+:root {
+    --colorPrimario: black;
+    --colorSecundario: white;
+}
+
+body {
+    font-family: fuenteGeneral;
+    font-size: 16px;
+    color: var(--colorPrimario);
+}
+
+a {
+    color: var(--colorSecundario);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+
+
