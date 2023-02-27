@@ -3,6 +3,7 @@
 :root {
     --colorPrimario: black;
     --colorSecundario: white;
+    --colorLinkHover: red;
 }
 
 body {
@@ -12,10 +13,33 @@ body {
 }
 
 a {
+
     color: var(--colorSecundario);
     text-decoration: none;
     font-size: 1rem;
 }
 
+/* ----------------------------------------------------- */
+.btnSection {
+    display: grid;
+    width: 200px;
+}
 
+/* ----------------------------------------------------- */
+.ssContenedor {
+    display: flex;
+    /* padding: 24px; */
+    width: 300px;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+    overflow-x: scroll;
+}
 
+.item {
+    width: 300px;
+    height: 300px;
+    background-color: rosybrown;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
