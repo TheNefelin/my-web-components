@@ -1,9 +1,21 @@
-/* -- configuraciones Generals ------------------------- */
+/* -- fuentes ------------------------------------------ */
+/* ----------------------------------------------------- */
+@font-face {
+    font-family: fuenteLogo;
+    src: url("../font/PermanentMarker-Regular.ttf");
+}
+
+@font-face {
+    font-family: fuenteGeneral;
+    src: url("../font/Poppins-Regular.ttf");
+}
+
+/* -- configuraciones generals ------------------------- */
 /* ----------------------------------------------------- */
 :root {
     --colorPrimario: black;
     --colorSecundario: white;
-    --colorLinkHover: red;
+    --colorLinkHover: rgb(255, 102, 102);;
 }
 
 body {
@@ -13,33 +25,164 @@ body {
 }
 
 a {
-
     color: var(--colorSecundario);
     text-decoration: none;
     font-size: 1rem;
 }
 
+/* -- btn componentes ---------------------------------- */
 /* ----------------------------------------------------- */
 .btnSection {
     display: grid;
     width: 200px;
 }
 
+/* -- paralax ------------------------------------------ */
 /* ----------------------------------------------------- */
-.ssContenedor {
-    display: flex;
-    /* padding: 24px; */
-    width: 300px;
-    gap: 12px;
-    scroll-snap-type: x mandatory;
-    scroll-padding: 24px;
-    overflow-x: scroll;
+.paralax {
+    background-image: url("../img/img01.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rebeccapurple;
+    height: 100vh;
 }
 
-.item {
-    width: 300px;
-    height: 300px;
-    background-color: rosybrown;
-    flex: 0 0 100%;
-    scroll-snap-align: start;
+/* -- navBar ------------------------------------------- */
+/* ----------------------------------------------------- */
+.navBar-contenedor {
+    background-color: var(--colorPrimario);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Se usa con parallax */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+/* navBar-logo --------------------- */
+.navBar-logo {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.navBar-logo img {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+/* navBar-btn ---------------------- */
+.navBar-btn {
+    cursor: pointer;
+    display: none;
+    padding-right: 2rem;
+}
+
+.navBar-A, .navBar-B, .navBar-C {
+    width: 2rem;
+    height: 5px;
+    background-color: var(--colorSecundario);
+    border-radius: 4px;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.navBar-btn_click .navBar-A {
+    transform: translateY(11px) rotate(45deg);
+    background-color: var(--colorLinkHover);
+}
+
+.navBar-btn_click .navBar-B {
+    opacity: 0;
+}
+
+.navBar-btn_click .navBar-C {
+    transform: translateY(-11px) rotate(-45deg);
+    background-color: var(--colorLinkHover);
+}
+
+/* navBar-links -------------------- */
+.navBar-links {
+    margin-right: 2rem;
+}
+
+.navBar-links a {
+    margin-left: 1rem;
+}
+
+.navBar-links a:hover {
+    color: var(--colorLinkHover);
+}
+
+/* navBar comportamineto ----------- */
+@media (max-width: 767.98px) {
+    .navBar-btn {
+        display: block;
+    }
+
+    .navBar-links {
+        position: fixed;
+        display: grid;
+        top: 60px;
+        background-color: var(--colorPrimario);
+        text-align: center;
+        width: 100%;
+        left: 100%;
+        transition: 0.4s;
+    }
+
+    .navBar-links_noOcultar {
+        left: 0;
+    }
+
+    .navBar-links a {
+        padding: 1rem;
+    }
+}
+
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+.Carrusel-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    min-height: 100vh;
+    background: #000;
+}
+
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    animation: anim 20s linear infinite;
+}
+
+@keyframes anim {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+.box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 36deg)) translateZ(250px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent,#0004);
+}
+
+.box img {
+    width: 100px;
+    height: 100px;
 }

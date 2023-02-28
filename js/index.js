@@ -1,4 +1,6 @@
-import { Scroll_Snap } from "../componentes/Scroll_Snap.js";
+import { renderNavBar } from "../componentes/renderNavBar.js";
+import { renderParalax } from "../componentes/renderParalax.js";
+import { renderNavBarParalax } from "../componentes/renderNavBarParalax.js";
 
 window.onload = () => {
     inicializarBtns();
@@ -18,7 +20,9 @@ function renderElement(id) {
     const demoContenedor = document.querySelector("#demo-contenedor");
     demoContenedor.innerHTML = "";
 
-    id == 3 ? demoContenedor.appendChild(Scroll_Snap()) : false;
+    id == 1 ? demoContenedor.appendChild(renderNavBar()) : false;
+    id == 2 ? demoContenedor.appendChild(renderParalax()) : false;
+    id == 3 ? demoContenedor.appendChild(renderNavBarParalax()) : false;
 }
 
 // function newNavBar01() {
