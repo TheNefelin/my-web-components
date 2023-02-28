@@ -1,6 +1,8 @@
 import { renderNavBar } from "../componentes/renderNavBar.js";
 import { renderParalax } from "../componentes/renderParalax.js";
 import { renderNavBarParalax } from "../componentes/renderNavBarParalax.js";
+import { renderGaleria } from "../componentes/renderGaleria.js";
+import { renderCarrusel } from "../componentes/renderCarrusel.js";
 
 window.onload = () => {
     inicializarBtns();
@@ -23,12 +25,6 @@ function renderElement(id) {
     id == 1 ? demoContenedor.appendChild(renderNavBar()) : false;
     id == 2 ? demoContenedor.appendChild(renderParalax()) : false;
     id == 3 ? demoContenedor.appendChild(renderNavBarParalax()) : false;
-}
-
-// function newNavBar01() {
-//     $("#demo-contenedor").load("../componentes/navbar_01.html #navBar01");
-// }
-
-// function newNavBarParalax() {
-//     $("#demo-contenedor").load("../componentes/navbar_01.html #navBar01Paralax");
-// }
+    id == 4 ? demoContenedor.appendChild(renderGaleria()) : false;
+    id == 5 ? demoContenedor.appendChild(renderCarrusel()) : false;
+};
