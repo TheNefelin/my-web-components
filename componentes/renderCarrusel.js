@@ -1,6 +1,8 @@
 export function renderCarrusel() {
+    //espacio entre elementos
     const z = 250;
 
+    //arreglo de algun origen de datos
     const arrImg = [
         { src: "./img/l-csharp.svg" },
         { src: "./img/t-vs-studio.svg" },
@@ -20,8 +22,10 @@ export function renderCarrusel() {
     const box =  document.createElement("div");
     box.classList.add("box");
 
+    //calculo para separar los elementos en su propio angulo
     let i = 1;
     let deg = 360 / arrImg.length;
+    
     arrImg.forEach(e => {
         const span =  document.createElement("span");
         span.style = `--i:${i}; --deg:${deg}deg; --z:${z}px`;

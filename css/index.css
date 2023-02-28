@@ -13,7 +13,7 @@
 /* -- configuraciones generals ------------------------- */
 /* ----------------------------------------------------- */
 :root {
-    --colorPrimario: black;
+    --colorPrimario: rgb(38, 40, 42);
     --colorSecundario: white;
     --colorLinkHover: rgb(255, 102, 102);;
 }
