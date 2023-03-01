@@ -228,13 +228,29 @@ a {
 /* --- tarjetas-exp ------------------------------------ */
 /* ----------------------------------------------------- */
 .tarjetasExp-contenedor {
-
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
 }
 
 .tarjetasExp {
     height: 400px;
-    width: 200px;
+    min-width: 12rem;
     background-color: rebeccapurple;
+    margin: auto;
+}
+
+.tarjetasExp-front {
+    background-color: #2196F3;
+    height: 100px;
+
+}
+
+.tarjetasExp-back {
+    background-color: aquamarine;
+    height: 100px;
+
 }
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */

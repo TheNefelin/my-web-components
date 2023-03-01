@@ -27,7 +27,25 @@ function renderElement(id) {
     id == 3 ? demoContenedor.appendChild(renderNavBarParalax()) : false;
     id == 4 ? demoContenedor.appendChild(renderGaleria()) : false;
     id == 5 ? demoContenedor.appendChild(renderCarrusel()) : false;
+
+    id == 100 ? piramide(20, true) : false;
 };
+
+function piramide(n, estado) {
+  let pir = "";
+
+  if (estado) {
+    for (let i = 0; i < n; i++){ pir += "*" }
+  }
+
+  for (let i = 0; i < n; i++) {
+    if (estado) {
+      console.log(pir.slice(0, n-i));
+    } else {
+      console.log(pir += "*");
+    }   
+  }
+}
 
 moverElemento(document.querySelector(".btnSection"));
 function moverElemento(elmnt) {
