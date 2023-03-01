@@ -14,7 +14,7 @@
 /* ----------------------------------------------------- */
 :root {
     --colorPrimario: rgb(38, 40, 42);
-    --colorSecundario: white;
+    --colorSecundario: rgb(255, 255, 255);
     --colorLinkHover: rgb(255, 102, 102);;
 }
 
@@ -60,7 +60,7 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rebeccapurple;
+    background-color: var(--colorPrimario);
     height: 100vh;
 }
 
@@ -173,7 +173,7 @@ a {
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
-    animation: anim 20s linear infinite;
+    animation: anim 15s linear infinite;
 }
 
 @keyframes anim {
@@ -225,8 +225,17 @@ a {
     filter: contrast(120%);
 }
 
+/* --- tarjetas-exp ------------------------------------ */
 /* ----------------------------------------------------- */
-/* ----------------------------------------------------- */
+.tarjetasExp-contenedor {
+
+}
+
+.tarjetasExp {
+    height: 400px;
+    width: 200px;
+    background-color: rebeccapurple;
+}
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
