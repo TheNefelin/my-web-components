@@ -13,13 +13,14 @@
 /* -- configuraciones generals ------------------------- */
 /* ----------------------------------------------------- */
 :root {
-    --colorBase01: rgb(38, 40, 42);
+    --colorBase01: rgb(0, 0, 0);
     --colorBase02: rgb(255, 255, 255);
+    --colorBase03: rgb(102, 102, 102);
 
     --color01: rgb(32, 148, 243);
     --color02: rgb(255, 102, 102);
     --color03: rgb(255, 255, 89);
-    --color04: rgb(127, 255, 212);
+    --color04: rgb(0, 255, 255);
 }
 
 body {
@@ -166,7 +167,7 @@ a {
     justify-content: center;
     align-items:  center;
     min-height: 100vh;
-    background: #000;
+    background: var(--colorBase01);
 }
 
 .box {
@@ -226,7 +227,7 @@ a {
     filter: contrast(120%);
 }
 
-/* --- tarjetas-exp ------------------------------------ */
+/* -- tarjetas-exp ------------------------------------- */
 /* ----------------------------------------------------- */
 .tarjetasExp-contenedor {
     background-color: var(--colorBase01);
@@ -274,6 +275,29 @@ a {
     color: var(--colorBase02);
 }
 
+/* -- footer ------------------------------------------- */
+/* ----------------------------------------------------- */
+footer {
+    background-color: var(--colorBase03);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100% , 15rem), 1fr));
+}
+
+footer div {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1.2rem;
+    color: var(--color04);
+}
+
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
