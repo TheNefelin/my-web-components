@@ -3,6 +3,7 @@ import { renderParalax } from "../componentes/renderParalax.js";
 import { renderNavBarParalax } from "../componentes/renderNavBarParalax.js";
 import { renderGaleria } from "../componentes/renderGaleria.js";
 import { renderCarrusel } from "../componentes/renderCarrusel.js";
+import { renderTarjetaExt } from "../componentes/renderTarjetaExt.js";
 
 window.onload = () => {
     inicializarBtns();
@@ -26,10 +27,14 @@ function renderElement(id) {
     id == 2 ? demoContenedor.appendChild(renderParalax()) : false;
     id == 3 ? demoContenedor.appendChild(renderNavBarParalax()) : false;
     id == 4 ? demoContenedor.appendChild(renderGaleria()) : false;
-    id == 5 ? demoContenedor.appendChild(renderCarrusel()) : false;
+    id == 5 ? demoContenedor.appendChild(renderTarjetaExt()) : false;
+    id == 6 ? demoContenedor.appendChild(renderCarrusel()) : false;
 
     id == 100 ? piramide(20, true) : false;
 };
+
+
+
 
 function piramide(n, estado) {
   let pir = "";

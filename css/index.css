@@ -13,20 +13,24 @@
 /* -- configuraciones generals ------------------------- */
 /* ----------------------------------------------------- */
 :root {
-    --colorPrimario: rgb(38, 40, 42);
-    --colorSecundario: rgb(255, 255, 255);
-    --colorLinkHover: rgb(255, 102, 102);;
+    --colorBase01: rgb(38, 40, 42);
+    --colorBase02: rgb(255, 255, 255);
+
+    --color01: rgb(32, 148, 243);
+    --color02: rgb(255, 102, 102);
+    --color03: rgb(255, 255, 89);
+    --color04: rgb(127, 255, 212);
 }
 
 body {
     font-family: fuenteGeneral;
     font-size: 16px;
-    color: var(--colorPrimario);
+    color: var(--colorBase01);
     overflow-x: hidden;
 }
 
 a {
-    color: var(--colorSecundario);
+    color: var(--colorBase02);
     text-decoration: none;
     font-size: 1rem;
 }
@@ -36,11 +40,8 @@ a {
 .btnSection {
     display: grid;
     width: 200px;
-
     position: absolute;
     z-index: 9;
-    background-color: #f1f1f1;
-    border: 1px solid #d3d3d3;
     text-align: center;
 }
 
@@ -48,8 +49,8 @@ a {
     padding: 10px;
     cursor: move;
     z-index: 10;
-    background-color: #2196F3;
-    color: #fff;
+    background-color: var(--color01);
+    color: var(--colorBase02);
 }
 
 /* -- paralax ------------------------------------------ */
@@ -60,14 +61,14 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: var(--colorPrimario);
+    background-color: var(--colorBase01);
     height: 100vh;
 }
 
 /* -- navBar ------------------------------------------- */
 /* ----------------------------------------------------- */
 .navBar-contenedor {
-    background-color: var(--colorPrimario);
+    background-color: var(--colorBase01);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +100,7 @@ a {
 .navBar-A, .navBar-B, .navBar-C {
     width: 2rem;
     height: 5px;
-    background-color: var(--colorSecundario);
+    background-color: var(--colorBase02);
     border-radius: 4px;
     margin: 6px 0;
     transition: 0.4s;
@@ -107,7 +108,7 @@ a {
 
 .navBar-btn_click .navBar-A {
     transform: translateY(11px) rotate(45deg);
-    background-color: var(--colorLinkHover);
+    background-color: var(--color02);
 }
 
 .navBar-btn_click .navBar-B {
@@ -116,7 +117,7 @@ a {
 
 .navBar-btn_click .navBar-C {
     transform: translateY(-11px) rotate(-45deg);
-    background-color: var(--colorLinkHover);
+    background-color: var(--color02);
 }
 
 /* navBar-links -------------------- */
@@ -129,7 +130,7 @@ a {
 }
 
 .navBar-links a:hover {
-    color: var(--colorLinkHover);
+    color: var(--color02);
 }
 
 /* navBar comportamineto ----------- */
@@ -142,7 +143,7 @@ a {
         position: fixed;
         display: grid;
         top: 60px;
-        background-color: var(--colorPrimario);
+        background-color: var(--colorBase01);
         text-align: center;
         width: 100%;
         left: 100%;
@@ -228,6 +229,8 @@ a {
 /* --- tarjetas-exp ------------------------------------ */
 /* ----------------------------------------------------- */
 .tarjetasExp-contenedor {
+    background-color: var(--colorBase01);
+    padding: 1rem;
     display: grid;
     justify-content: center;
     gap: 1rem;
@@ -235,23 +238,42 @@ a {
 }
 
 .tarjetasExp {
-    height: 400px;
-    min-width: 12rem;
-    background-color: rebeccapurple;
+    position: relative;
+    min-height: 20rem;
+    max-width: 12rem;
+    background-color: var(--colorBase02);
+    border: solid 1px var(--color01);
     margin: auto;
 }
 
+.tarjetasExp p {
+    color: var(--color01);
+    margin: 1rem;
+    text-align: center;
+}
+
 .tarjetasExp-front {
-    background-color: #2196F3;
-    height: 100px;
-
+    background-color: var(--color01);
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 }
 
-.tarjetasExp-back {
-    background-color: aquamarine;
-    height: 100px;
-
+.tarjetasExp-front_achicar {
+    height: 4rem;
 }
+
+.tarjetasExp-front p {
+    margin: 0;
+    color: var(--colorBase02);
+}
+
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
