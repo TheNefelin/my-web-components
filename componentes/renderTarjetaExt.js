@@ -1,4 +1,4 @@
-export function renderTarjetaExt() {
+export default function renderTarjetaExt() {
     const arr = [
         {
             titulo: "SQL SERVER",

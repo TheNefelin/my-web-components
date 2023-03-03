@@ -1,11 +1,14 @@
 import { LinksGroup, Links } from "../class/ApiFetch.js";
-import { renderNavBar } from "../componentes/renderNavBar.js";
-import { renderParalax } from "../componentes/renderParalax.js";
-import { renderNavBarParalax } from "../componentes/renderNavBarParalax.js";
-import { renderGaleria } from "../componentes/renderGaleria.js";
-import { renderCarrusel } from "../componentes/renderCarrusel.js";
-import { renderTarjetaExt } from "../componentes/renderTarjetaExt.js";
-import { renderFooterLinks } from "../componentes/renderFooterLinks.js";
+import renderLoading from "../componentes/renderLoading.js";
+import renderNavBar from "../componentes/renderNavBar.js";
+import renderParalax from "../componentes/renderParalax.js";
+import renderNavBarParalax from "../componentes/renderNavBarParalax.js";
+import renderGaleria from "../componentes/renderGaleria.js";
+import renderCarrusel from "../componentes/renderCarrusel.js";
+import renderTarjetaExt from "../componentes/renderTarjetaExt.js";
+import renderCarrito from "../componentes/renderCarrito.js";
+import renderAcordion from "../componentes/renderAcordion.js";
+import renderFooterLinks from "../componentes/renderFooterLinks.js";
 
 window.onload = () => {
   inicializarBtns();
@@ -34,31 +37,29 @@ function renderElement(id) {
   id == 4 ? demoContenedor.appendChild(renderGaleria()) : false;
   id == 5 ? demoContenedor.appendChild(renderCarrusel()) : false;
   id == 6 ? demoContenedor.appendChild(renderTarjetaExt()) : false;
+  id == 7 ? demoContenedor.appendChild(renderCarrito()) : false;
+  id == 8 ? demoContenedor.appendChild(renderAcordion()) : false;
 
-  if (id == 7) {
-      Promise.all([
-          linksGrp.getLinksGroup().then(data => data),
-          links.getLinks().then(data => data)
-      ])
+  if (id == 100) {
+    demoContenedor.appendChild(renderLoading());
+
+    Promise.all([
+      linksGrp.getLinksGroup().then(data => data),
+      links.getLinks().then(data => data)
+    ])
       .then(arr => {
-          demoContenedor.appendChild(renderFooterLinks(arr[0], arr[1]));
+        demoContenedor.innerHTML = "";
+        demoContenedor.appendChild(renderFooterLinks(arr[0], arr[1]));
       })
       .catch(err => console.log(`ERROR: ${err}`));
-  }
-
-  id == 100 ? console.log("holy") : false;
+  };
 };
 
 moverElemento(document.querySelector(".btnSection"));
 function moverElemento(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  };
+
+  elmnt.onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
     e = e || window.event;

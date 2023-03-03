@@ -1,4 +1,4 @@
-export function renderFooterLinks(linksGrp, links) {
+export default function renderFooterLinks(linksGrp, links) {
     const footer = document.createElement("footer");
 
     linksGrp.map(grp => {

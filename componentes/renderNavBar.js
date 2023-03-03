@@ -1,4 +1,4 @@
-export function renderNavBar() {
+export default function renderNavBar() {
     const logo = {
         src: "./img/logo.svg",
         nombre: "Demo"

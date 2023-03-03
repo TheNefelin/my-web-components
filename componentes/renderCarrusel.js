@@ -1,4 +1,4 @@
-export function renderCarrusel() {
+export default function renderCarrusel() {
     //espacio entre elementos
     const z = 250;
 

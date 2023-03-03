@@ -1,4 +1,4 @@
-export function renderGaleria() {
+export default function renderGaleria() {
     const arrImg = [
         { src: "./img/l-csharp.svg" },
         { src: "./img/t-dotnet.svg" },
@@ -19,5 +19,5 @@ export function renderGaleria() {
         section.appendChild(img);
     });
 
-    return section
-}
+    return section;
+};

@@ -1,6 +1,6 @@
-import { renderNavBar } from "./renderNavBar.js";
+import renderNavBar from "./renderNavBar.js";
 
-export function renderNavBarParalax() {
+export default function renderNavBarParalax() {
     const section = document.createElement("section");
     section.classList.add("paralax");
 
