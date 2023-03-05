@@ -136,7 +136,6 @@ export default function renderAcordion() {
             })
         });
 
-        
     });
 
     return contenedor;
@@ -150,5 +149,5 @@ function acordion_click(obj) {
         hijo.style.maxHeight = null;
     } else {
         hijo.style.maxHeight = hijo.scrollHeight + "px";
-    }
+    };
 };

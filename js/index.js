@@ -40,7 +40,7 @@ function renderElement(id) {
   id == 7 ? demoContenedor.appendChild(renderCarrito()) : false;
   id == 8 ? demoContenedor.appendChild(renderAcordion()) : false;
 
-  if (id == 100) {
+  if (id == 9) {
     demoContenedor.appendChild(renderLoading());
 
     Promise.all([
@@ -55,6 +55,8 @@ function renderElement(id) {
   };
 };
 
+// -- contenedor btns ----------------------------------------------
+// -----------------------------------------------------------------
 moverElemento(document.querySelector(".btnSection"));
 function moverElemento(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
