@@ -9,6 +9,9 @@ export default function renderGaleria() {
         { src: "./img/t-react.svg" }
     ];
 
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
     const section = document.createElement("section");
     section.classList.add("galeria-contenedor");
 
@@ -19,5 +22,5 @@ export default function renderGaleria() {
         section.appendChild(img);
     });
 
-    return section;
+    demoContenedor.appendChild(section);
 };

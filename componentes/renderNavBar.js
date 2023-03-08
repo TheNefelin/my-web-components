@@ -1,4 +1,11 @@
-export default function renderNavBar() {
+export default function renderNavBarDemo() {
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
+    demoContenedor.appendChild(renderNavBar());
+}
+
+export function renderNavBar() {
     const logo = {
         src: "./img/logo.svg",
         nombre: "Demo"
@@ -82,6 +89,4 @@ export default function renderNavBar() {
     });
 
     return navBar;
-}
-
-
+};

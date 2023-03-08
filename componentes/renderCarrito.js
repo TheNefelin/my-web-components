@@ -1,4 +1,7 @@
 export default function renderCarrito() {
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
     const btn = document.createElement("button");
     btn.classList.add("carrito");
 
@@ -12,5 +15,5 @@ export default function renderCarrito() {
 
     btn.appendChild(span);
 
-    return btn;
+    demoContenedor.appendChild(btn);
 }

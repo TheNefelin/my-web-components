@@ -87,6 +87,9 @@ export default function renderAcordion() {
         }
     ];
 
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
     const contenedor = document.createElement("section");
     contenedor.classList.add("acordion-list");
 
@@ -138,7 +141,7 @@ export default function renderAcordion() {
 
     });
 
-    return contenedor;
+    demoContenedor.appendChild(contenedor);
 };
 
 function acordion_click(obj) {

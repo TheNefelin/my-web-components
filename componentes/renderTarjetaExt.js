@@ -22,6 +22,9 @@ export default function renderTarjetaExt() {
         }
     ];
 
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
     const contenedor = document.createElement("section");
     contenedor.classList.add("tarjetasExp-contenedor");
 
@@ -59,5 +62,5 @@ export default function renderTarjetaExt() {
         });
     });
 
-    return contenedor;
+    demoContenedor.appendChild(contenedor);
 };

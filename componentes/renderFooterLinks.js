@@ -1,26 +1,42 @@
-export default function renderFooterLinks(linksGrp, links) {
-    const footer = document.createElement("footer");
+import Api from "../class/Api.js";
+import renderLoading from "./renderLoading.js";
 
-    linksGrp.map(grp => {
-        const div = document.createElement("div");
+export default function renderFooterLinks() {
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+    demoContenedor.appendChild(renderLoading());
 
-        const p = document.createElement("p");
-        p.innerText = grp.nombre
-        div.appendChild(p);
+    const api = new Api();
 
-        const linksPorGrp = links.filter(e => e.idLinkGrupo == grp.id)
+    Promise.all([
+        // get data from Api -----------------------------------------
+        api.getLinkCategAll().then(data => data),
+        api.getLinkAll().then(data => data)
+    ]).then(arr => {
+        // render component ------------------------------------------
+        demoContenedor.innerHTML = "";
+        const footer = document.createElement("footer");
 
-        linksPorGrp.map(d => {
-            const a = document.createElement("a");
-            a.target = "_blank";
-            a.href = d.link;
-            a.innerText = d.nombre;
-
-            div.appendChild(a);
+        arr[0].map(grp => {
+            const div = document.createElement("div");
+    
+            const p = document.createElement("p");
+            p.innerText = grp.nombre
+            div.appendChild(p);
+    
+            const linksPorGrp = arr[1].filter(e => e.idLinkGrupo == grp.id)
+    
+            linksPorGrp.map(d => {
+                const a = document.createElement("a");
+                a.target = "_blank";
+                a.href = d.link;
+                a.innerText = d.nombre;
+    
+                div.appendChild(a);
+            });
+    
+            footer.appendChild(div);
+            demoContenedor.appendChild(footer);
         });
-
-        footer.appendChild(div);
     });
-
-    return footer;
 };

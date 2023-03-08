@@ -1,4 +1,7 @@
 export default function renderCarrusel() {
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
     //espacio entre elementos
     const z = 250;
 
@@ -41,5 +44,5 @@ export default function renderCarrusel() {
 
     section.appendChild(box)
 
-    return section;
+    demoContenedor.appendChild(section);
 }
