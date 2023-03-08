@@ -458,6 +458,44 @@ footer p {
 
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
+.objAbsoluto-menu {
+    padding-top: 1rem;
+}
+
+.objAbsoluto-menu label {
+    color: var(--color02);
+}
+
+.objAbsoluto-contenedor {
+    position: relative;
+    background-color: var(--colorBase03);
+    height: 500px;
+    overflow: hidden;
+}
+
+.objAbsoluto {
+    position: absolute;
+    display: grid;
+    cursor: move;
+    text-align: center;
+
+}
+
+.objAbsoluto div {
+    background-color: var(--color03);
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+}
+
+.objAbsoluto span {
+    background-color: var(--colorBase02);
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+}
+
+
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */

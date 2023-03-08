@@ -13,6 +13,7 @@ window.onload = () => {
 };
 
 function inicializarBtns() {
+    moverElemento(document.querySelector(".objAbsoluto"));
     moverElemento(document.querySelector(".btnSection"));
 
     const btns = document.querySelectorAll(".btnSection > button");
@@ -71,3 +72,34 @@ function moverElemento(elmnt) {
         document.onmousemove = null;
     };
 };
+
+const objAbsolutoAgregar = document.querySelector(".objAbsoluto-agregar");
+objAbsolutoAgregar.addEventListener("click", () => {
+    const error = document.querySelector(".objAbsoluto-error");
+    const txts = document.querySelectorAll(".objAbsoluto-menu > input");
+
+    if (txts[0].value && txts[1].value) {
+        error.innerText = "";
+    
+        const objAbsoluto = document.createElement("span");
+        objAbsoluto.classList.add("objAbsoluto");
+
+        const div =  document.createElement("div");
+        const strong =  document.createElement("strong");
+        strong.textContent = txts[0].value;
+        div.appendChild(strong);
+        objAbsoluto.appendChild(div);
+
+        const span = document.createElement("span");
+        span.innerText = txts[1].value;
+        objAbsoluto.appendChild(span);
+
+        moverElemento(objAbsoluto);
+
+        const objAbsolutoContenedor = document.querySelector(".objAbsoluto-contenedor");
+        objAbsolutoContenedor.appendChild(objAbsoluto);
+    } else {
+        error.innerText = "Debe Ingresar Título y Descripción"
+    }
+});
+
