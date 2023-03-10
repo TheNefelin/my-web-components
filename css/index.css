@@ -28,7 +28,7 @@ body {
     font-family: fuenteGeneral;
     font-size: 16px;
     color: var(--colorBase01);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: rgb(26, 26, 26);
 }
 
@@ -90,6 +90,7 @@ a {
     position: absolute;
     z-index: 9;
     text-align: center;
+    border: 2px solid var(--colorBase02);
 }
 
 .btnSection > div {
@@ -456,20 +457,30 @@ footer p {
     color: var(--color04);
 }
 
+/* -- obj absoluto ------------------------------------- */
 /* ----------------------------------------------------- */
-/* ----------------------------------------------------- */
-.objAbsoluto-menu {
-    padding-top: 1rem;
+.objAbsoluto-admin {
+    display: flex;
 }
 
-.objAbsoluto-menu label {
+.objAbsoluto-menu {
+    max-width: 15rem;
+    text-align: center;
+}
+
+.objAbsoluto-menu > * {
+    margin-top: 1rem;
+}
+
+.objAbsoluto-error {
     color: var(--color02);
 }
 
 .objAbsoluto-contenedor {
     position: relative;
     background-color: var(--colorBase03);
-    height: 500px;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
 }
 
