@@ -15,7 +15,7 @@ export default function renderLoading() {
     contenedor.appendChild(div);
 
     return contenedor;
-}
+};
 
 export function renderLoadin2() {
     const demoContenedor = document.querySelector("#demo-contenedor");
@@ -37,4 +37,4 @@ export function renderLoadin2() {
     contenedor.appendChild(div);
 
     demoContenedor.appendChild(contenedor);
-}
+};
