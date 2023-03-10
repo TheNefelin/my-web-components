@@ -8,6 +8,7 @@ import renderCarrito from "../componentes/renderCarrito.js";
 import renderAcordion from "../componentes/renderAcordion.js";
 import renderFooterLinks from "../componentes/renderFooterLinks.js";
 import renderAdminMesa, { moverElemento } from "../componentes/renderAdminMesa.js";
+import { renderLoadin2 } from "../componentes/renderLoading.js";
 
 window.onload = () => {
     inicializarBtns();
@@ -39,4 +40,5 @@ function renderElement(id) {
     id == 8 ? renderAcordion() : false;
     id == 9 ? renderFooterLinks() : false;
     id == 10 ? renderAdminMesa() : false;
+    id == 11 ? renderLoadin2() : false;
 };

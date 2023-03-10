@@ -1,11 +1,40 @@
 export default function renderLoading() {
+    const contenedor = document.createElement("section");
+    contenedor.classList.add("loading2-contenedor");
+
     const div = document.createElement("div");
-    div.classList.add("loading");
+    div.classList.add("loading2");
 
-    const img = document.createElement("img");
-    img.src = "./img/load.gif";
+    for (let i = 1; i <= 20; i++) {
+        const span = document.createElement("span");
+        span.style = `--i:${i};`;
 
-    div.appendChild(img);
+        div.appendChild(span);
+    }
 
-    return div;
+    contenedor.appendChild(div);
+
+    return contenedor;
+}
+
+export function renderLoadin2() {
+    const demoContenedor = document.querySelector("#demo-contenedor");
+    demoContenedor.innerHTML = "";
+
+    const contenedor = document.createElement("section");
+    contenedor.classList.add("loading2-contenedor");
+
+    const div = document.createElement("div");
+    div.classList.add("loading2");
+
+    for (let i = 1; i <= 20; i++) {
+        const span = document.createElement("span");
+        span.style = `--i:${i};`;
+
+        div.appendChild(span);
+    }
+
+    contenedor.appendChild(div);
+
+    demoContenedor.appendChild(contenedor);
 }
