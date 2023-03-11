@@ -16,7 +16,7 @@ export default function renderSlider3() {
     const contenedor = document.createElement("div");
     contenedor.classList.add("slider3-contenedor");
 
-    tipoaAlim.forEach(e => {
+    tipoaAlim.forEach((e, index) => {
         const slide = document.createElement("div");
         slide.classList.add("slide3");
 
@@ -24,10 +24,56 @@ export default function renderSlider3() {
         img.src = e.link;
         img.addEventListener('dragstart', (e) => e.preventDefault())
         slide.appendChild(img);
+
+        addMentodos(slide, index, contenedor);
   
         contenedor.appendChild(slide);
     });
 
     section.appendChild(contenedor);
     demoContenedor.appendChild(section);
-}
+};
+
+function addMentodos(slide, index, contenedor) {
+    let xInicial, xDespues;
+
+    // eventos para toutch -------------------------
+    slide.addEventListener("touchstart", (e) => {
+        xInicial = e.touches[0].clientX;
+        console.log(xInicial)
+    });
+
+    slide.addEventListener("touchmove", (e) => {
+        // xDespues = e.touches[0].clientX;
+    });
+
+    slide.addEventListener("touchend", (e) => {
+        xDespues = e.changedTouches[0].clientX;
+        moverImg(direccion())
+    });
+
+    // eventos para mouse --------------------------
+
+    // comportamiento ------------------------------
+    function direccion() {
+        let diferencia = xInicial - xDespues;
+        let dragMin = 100;
+
+        if (diferencia > 0 && Math.abs(diferencia) > dragMin && index < contenedor.childElementCount -1) return 1;
+        else if (xInicial - xDespues < 0 && Math.abs(diferencia) > dragMin && index > 0) return -1;
+        else return 0;
+    };
+
+    function moverImg(IzqDer) {
+        indexFinal = index + IzqDer;
+        contenedor.style.transform = `translateX(${-window.innerWidth * (indexFinal)}px)`
+    };
+};
+
+// cuando la ventana cambiar el tamaño centraliza la imagen seleccionada ---------------
+let indexFinal = 0;
+
+window.addEventListener("resize", (e) => {
+    const contenedor = document.querySelector(".slider3-contenedor");
+    contenedor.style.transform = `translateX(${-window.innerWidth * (indexFinal)}px)`
+});

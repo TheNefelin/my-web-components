@@ -635,12 +635,12 @@ footer p {
     position: relative;
     width: 100vw;
     overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .slider3-contenedor {
     display: inline-flex;
     transition: transform 0.3s ease-out;
-    background-color: var(--color03);
 }
 
 .slide3 {
@@ -653,6 +653,7 @@ footer p {
 
 .slide3 img {
     height: 25vh;
+    box-shadow: 5px 5px 50px -1px var(--color02);
     user-select: none;
 }
 
