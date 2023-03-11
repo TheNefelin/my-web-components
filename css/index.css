@@ -582,6 +582,13 @@ footer p {
     width: 100%;
     overflow-x: auto;
     scroll-snap-type: x;
+    cursor: grab;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.slider-contenedor::--webkit-scrollbar {
+    display: none;
 }
 
 .slider {
@@ -593,6 +600,8 @@ footer p {
     align-items: center;
     color: #fff;
     font-size: 2rem;
+    scroll-snap-align: start;
+    user-select: none;
 }
 
 /* ----------------------------------------------------- */

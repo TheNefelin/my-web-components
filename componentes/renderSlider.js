@@ -7,6 +7,9 @@ export default function renderSlider() {
         {id: 5, nombre: "Nombre 5", link: "..img/t-vs-code.png"},
     ];
 
+    let pressed = false;
+    let startX = 0;
+
     const demoContenedor = document.querySelector("#demo-contenedor");
     demoContenedor.innerHTML = "";
 
@@ -15,6 +18,24 @@ export default function renderSlider() {
 
     const contenedor = document.createElement("div");
     contenedor.classList.add("slider-contenedor");
+    contenedor.addEventListener("mousedown", function (e) {
+        pressed = true;
+        startX = e.clientX;
+        this.style.cursor = "grabbing";
+    });
+    contenedor.addEventListener("mouseleave", function (e) {
+        pressed = false;
+    });
+    contenedor.addEventListener("mouseup", function (e) {
+        pressed = false;
+        this.style.cursor = "grab";
+    });
+    contenedor.addEventListener("mousemove", function (e) {
+        if (!pressed) {
+            return 
+        }
+        this.scrollLeft += startX - e.clientX;
+    });
 
     tipoaAlim.forEach(e => {
         const div = document.createElement("div");
@@ -28,3 +49,4 @@ export default function renderSlider() {
 
     demoContenedor.appendChild(section);
 };
+
