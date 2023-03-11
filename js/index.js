@@ -19,8 +19,8 @@ window.onload = () => {
 
 function inicializarBtns() {
     const btnSection = document.querySelector(".btnSection");
-    btnSection.style.top = "2rem";
-    btnSection.style.left = "3rem";
+    btnSection.style.top = "25vh";
+    btnSection.style.left = "20vw";
     moverElemento(btnSection);
 
     const btns = document.querySelectorAll(".btnSection > button");

@@ -75,5 +75,7 @@ let indexFinal = 0;
 
 window.addEventListener("resize", (e) => {
     const contenedor = document.querySelector(".slider3-contenedor");
-    contenedor.style.transform = `translateX(${-window.innerWidth * (indexFinal)}px)`
+    if (contenedor) {
+        contenedor.style.transform = `translateX(${-window.innerWidth * (indexFinal)}px)`
+    };
 });
