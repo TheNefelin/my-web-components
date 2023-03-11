@@ -28,7 +28,7 @@ body {
     font-family: fuenteGeneral;
     font-size: 16px;
     color: var(--colorBase01);
-    /* overflow-x: hidden; */
+    /* overflow: hidden; */
     background-color: rgb(26, 26, 26);
 }
 
@@ -604,6 +604,62 @@ footer p {
     user-select: none;
 }
 
+/* -- slider 2 ----------------------------------------- */
+/* ----------------------------------------------------- */
+.slider2-contenedor {
+    display: inline-flex;
+    transition: transform 0.3s ease-out;
+}
+
+.slide2 {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+
+.slide2 img {
+    height: 30vh;
+    box-shadow: 5px 5px 50px -1px var(--color02);
+    user-select: none;
+}
+
+.slide2:active {
+    cursor: grabbing;
+}
+
+/* -- slider 3 ----------------------------------------- */
+/* ----------------------------------------------------- */
+.slider3-section {
+    position: relative;
+    width: 100vw;
+    overflow-x: scroll;
+}
+
+.slider3-contenedor {
+    display: inline-flex;
+    transition: transform 0.3s ease-out;
+    background-color: var(--color03);
+}
+
+.slide3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    cursor: grab;
+}
+
+.slide3 img {
+    height: 25vh;
+    user-select: none;
+}
+
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 /* ----------------------------------------------------- */
 .lblUserName {

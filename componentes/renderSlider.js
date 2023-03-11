@@ -23,18 +23,17 @@ export default function renderSlider() {
         startX = e.clientX;
         this.style.cursor = "grabbing";
     });
-    contenedor.addEventListener("mouseleave", function (e) {
-        pressed = false;
-    });
     contenedor.addEventListener("mouseup", function (e) {
         pressed = false;
         this.style.cursor = "grab";
     });
+    contenedor.addEventListener("mouseleave", function (e) {
+        pressed = false;
+    });
     contenedor.addEventListener("mousemove", function (e) {
-        if (!pressed) {
-            return 
-        }
-        this.scrollLeft += startX - e.clientX;
+        if (pressed) {
+            this.scrollLeft += startX - e.clientX;
+        };
     });
 
     tipoaAlim.forEach(e => {

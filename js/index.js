@@ -10,6 +10,8 @@ import renderFooterLinks from "../componentes/renderFooterLinks.js";
 import renderAdminMesa, { moverElemento } from "../componentes/renderAdminMesa.js";
 import { renderLoadin2 } from "../componentes/renderLoading.js";
 import renderSlider from "../componentes/renderSlider.js";
+import renderSlider2 from "../componentes/renderSlider2.js";
+import renderSlider3 from "../componentes/renderSlider3.js";
 
 window.onload = () => {
     inicializarBtns();
@@ -43,4 +45,6 @@ function renderElement(id) {
     id == 10 ? renderAdminMesa() : false;
     id == 11 ? renderLoadin2() : false;
     id == 12 ? renderSlider() : false;
+    id == 13 ? renderSlider2() : false;
+    id == 14 ? renderSlider3() : false;
 };

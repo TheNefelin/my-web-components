@@ -100,8 +100,8 @@ export function moverElemento(elmnt) {
     
     function soltarElemento() {
         // stop moving when mouse button is released:
-        document.onmouseup = null;
         document.onmousemove = null;
+        document.onmouseup = null;
     };
 };
 
