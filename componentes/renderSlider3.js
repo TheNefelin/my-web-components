@@ -35,38 +35,70 @@ export default function renderSlider3() {
 };
 
 function addMentodos(slide, index, contenedor) {
-    let xInicial, xDespues;
+    let xInicial, xDespues, diferencia, diferenciaMin = 200;
 
     // eventos para toutch -------------------------
     slide.addEventListener("touchstart", (e) => {
         xInicial = e.touches[0].clientX;
-        console.log(xInicial)
     });
 
     slide.addEventListener("touchmove", (e) => {
-        // xDespues = e.touches[0].clientX;
+        xDespues = e.changedTouches[0].clientX;
+        diferencia = xInicial - xDespues;
+        arrastrarImg();
     });
 
     slide.addEventListener("touchend", (e) => {
-        xDespues = e.changedTouches[0].clientX;
-        moverImg(direccion())
+        indexFinal = index + getDireccion();
+
+        if (indexFinal < 0) indexFinal = 0;
+        if(indexFinal > contenedor.children.length -1) indexFinal = contenedor.children.length -1;
+
+        Math.abs(diferencia) > diferenciaMin ? moverImg() : centrarImg();
     });
 
     // eventos para mouse --------------------------
+    slide.onmousedown = seleccionarElemento;
+
+    function seleccionarElemento(e) {
+        xInicial = e.clientX;
+        e.preventDefault();
+        document.onmousemove = moverElemento;
+        document.onmouseup = soltarElemento;
+    };
+
+    function moverElemento(e) {
+        xDespues = e.clientX;
+        diferencia = xInicial - xDespues;
+        arrastrarImg();
+    };
+
+    function soltarElemento(e) {
+        document.onmousemove = null;
+        document.onmouseup = null;
+        xInicial = 0, xDespues = 0;
+
+        indexFinal = index + getDireccion();
+    
+        if (indexFinal < 0) indexFinal = 0;
+        if(indexFinal > contenedor.children.length -1) indexFinal = contenedor.children.length -1;
+        
+        Math.abs(diferencia) > diferenciaMin ? moverImg() : centrarImg();
+    }
 
     // comportamiento ------------------------------
-    function direccion() {
-        let diferencia = xInicial - xDespues;
-        let dragMin = 100;
-
-        if (diferencia > 0 && Math.abs(diferencia) > dragMin && index < contenedor.childElementCount -1) return 1;
-        else if (xInicial - xDespues < 0 && Math.abs(diferencia) > dragMin && index > 0) return -1;
+    function getDireccion() {
+        if (diferencia > 0) return 1;
+        else if (diferencia < 0) return -1;
         else return 0;
     };
 
-    function moverImg(IzqDer) {
-        indexFinal = index + IzqDer;
-        contenedor.style.transform = `translateX(${-window.innerWidth * (indexFinal)}px)`
+    function arrastrarImg(){
+        contenedor.style.transform = `translateX(${-window.innerWidth * index - diferencia}px)`
+    };
+
+    function centrarImg(){
+        contenedor.style.transform = `translateX(${-window.innerWidth * index}px)`
     };
 };
 
@@ -74,8 +106,12 @@ function addMentodos(slide, index, contenedor) {
 let indexFinal = 0;
 
 window.addEventListener("resize", (e) => {
+    moverImg();
+});
+
+function moverImg() {
     const contenedor = document.querySelector(".slider3-contenedor");
     if (contenedor) {
         contenedor.style.transform = `translateX(${-window.innerWidth * (indexFinal)}px)`
     };
-});
+};

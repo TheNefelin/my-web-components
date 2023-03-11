@@ -651,6 +651,10 @@ footer p {
     cursor: grab;
 }
 
+.slide3:active {
+    cursor: grabbing;
+}
+
 .slide3 img {
     height: 25vh;
     box-shadow: 5px 5px 50px -1px var(--color02);
