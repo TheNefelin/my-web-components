@@ -112,7 +112,7 @@ a {
     height: 15rem;
 }
 
-.loading2-contenedor {
+.loading-contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,13 +128,13 @@ a {
     }
 }
 
-.loading2 {
+.loading {
     position: relative;
     height: 5rem;
     width: 5rem;
 }
 
-.loading2 span {
+.loading span {
     position: absolute;
     top: 0;
     left: 0;
@@ -143,7 +143,7 @@ a {
     transform: rotate(calc(18deg * var(--i)));
 }
 
-.loading2 span::before {
+.loading span::before {
     content: '';
     position: absolute;
     top: 0;
